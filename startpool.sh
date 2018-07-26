@@ -2,7 +2,7 @@
 
 #pool2b:
 echo starting 2G diff pool
-screen -S pool2b ./pool pool2b.json
+screen -S pool2b ./build/bin/pool pool2b.json
 
 #pool9b:
 echo starting 9G diff pool
