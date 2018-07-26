@@ -14,7 +14,7 @@ ethdir="$workspace/src/github.com/minerpoolcf"
 if [ ! -L "$ethdir/ethash-minerpool" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"
-    ln -s ../../../../../. open-ethereum-pool
+    ln -s ../../../../../. ethash-minerpool
     cd "$root"
 fi
 

@@ -1,6 +1,7 @@
 ## Open Source Ethereum Mining Pool
 
 ![Miner's stats page](https://user-images.githubusercontent.com/7374093/31591180-43c72364-b236-11e7-8d47-726cd66b876a.png)
+ 
 
 ### Features
 
@@ -17,12 +18,6 @@
 
 * [Ether-Proxy](https://github.com/sammy007/ether-proxy) HTTP proxy with web interface
 * [Stratum Proxy](https://github.com/Atrides/eth-proxy) for Ethereum
-
-### Prerequisets
-
-  * Linux – Ubuntu 64bit Server 16.04
-  * A Domain (DNS)
-  * A VPS
 
 ### Building on Linux
 
@@ -321,6 +316,8 @@ Made by sammy007. Licensed under GPLv3.
 
 ### Donations
 
-ETH/ETC: 0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191
+ETH/ETC: 0xb85150eb365e7df0941f0cf08235f987ba91506a
+
+![](https://cdn.pbrd.co/images/GP5tI1D.png)
 
 Highly appreciated.

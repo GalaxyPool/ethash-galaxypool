@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'open-ethereum-pool',
+    modulePrefix: 'ethash-minerpool',
     environment: environment,
     rootURL: '/',
     locationType: 'hash',
@@ -15,19 +15,19 @@ module.exports = function(environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//202.182.99.248:8080/',
+      ApiUrl: '//example.net/',
 
       // HTTP mining endpoint
-      HttpHost: 'http://202.182.99.248/',
+      HttpHost: 'http://example.net',
       HttpPort: 8888,
 
       // Stratum mining endpoint
-      StratumHost: 'http://202.182.99.248/',
+      StratumHost: 'example.net',
       StratumPort: 8008,
 
       // Fee and payout details
       PoolFee: '1%',
-      PayoutThreshold: '1 AURA',
+      PayoutThreshold: '0.5 Ether',
 
       // For network hashrate (change for your favourite fork)
       BlockTime: 14.4
