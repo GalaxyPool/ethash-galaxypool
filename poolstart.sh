@@ -5,9 +5,9 @@ killall screen
 screen -wipe
 sleep 1
 
-cd ~/home/pool/Ethash-Minerpool/
+cd ~/Ethash-Minerpool/
 echo starting node
-screen -LdmS node ~/home/go-aura/build/bin/geth -rpc -fast -unlock="0x0d9b1890121205ad66b7ee1986bb5db7a7dd3309" –password=”/home/pool/Ethash-Minerpool/pass” -mine -minerthreads
+screen -LdmS node ~/go-aura/build/bin/geth -rpc -fast -unlock="0x0d9b1890121205ad66b7ee1986bb5db7a7dd3309" –password=”~/Ethash-Minerpool/pass” -mine -minerthreads
 
 # the file “/home/pirl/open-ethereum-pool/.walletpass” HAS to contain your wallet password, we did this though
 
