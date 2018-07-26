@@ -2,8 +2,6 @@
 
 ![Miner's stats page](https://user-images.githubusercontent.com/7374093/31591180-43c72364-b236-11e7-8d47-726cd66b876a.png)
 
-[![Join the chat at https://gitter.im/sammy007/open-ethereum-pool](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sammy007/open-ethereum-pool?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/sammy007/open-ethereum-pool.svg?branch=develop)](https://travis-ci.org/sammy007/open-ethereum-pool) [![Go Report Card](https://goreportcard.com/badge/github.com/sammy007/open-ethereum-pool)](https://goreportcard.com/report/github.com/sammy007/open-ethereum-pool)
-
 ### Features
 
 **This pool is being further developed to provide an easy to use pool for Ethereum miners. This software is functional however an optimised release of the pool is expected soon. Testing and bug submissions are welcome!**
@@ -19,6 +17,12 @@
 
 * [Ether-Proxy](https://github.com/sammy007/ether-proxy) HTTP proxy with web interface
 * [Stratum Proxy](https://github.com/Atrides/eth-proxy) for Ethereum
+
+### Prerequisets
+
+  * Linux – Ubuntu 64bit Server 16.04
+  * A Domain (DNS)
+  * A VPS
 
 ### Building on Linux
 
