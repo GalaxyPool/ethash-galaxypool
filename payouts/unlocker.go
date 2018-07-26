@@ -10,9 +10,9 @@ import (
 
 	"github.com/ethereum/go-ethereum/common/math"
 
-	"github.com/sammy007/open-ethereum-pool/rpc"
-	"github.com/sammy007/open-ethereum-pool/storage"
-	"github.com/sammy007/open-ethereum-pool/util"
+	"github.com/minerpoolcf/ethash-minerpool/rpc"
+	"github.com/minerpoolcf/ethash-minerpool/storage"
+	"github.com/minerpoolcf/ethash-minerpool/util"
 )
 
 type UnlockerConfig struct {
