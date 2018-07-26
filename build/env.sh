@@ -10,7 +10,7 @@ fi
 # Create fake Go workspace if it doesn't exist yet.
 workspace="$PWD/build/_workspace"
 root="$PWD"
-ethdir="$workspace/src/github.com/ethash-minerpool"
+ethdir="$workspace/src/github.com/minerpoolcf"
 if [ ! -L "$ethdir/ethash-minerpool" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"
