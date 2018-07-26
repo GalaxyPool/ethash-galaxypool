@@ -317,8 +317,6 @@ Made by sammy007. Licensed under GPLv3.
 
 ### Donations
 
-ETH/ETC: 0xb85150eb365e7df0941f0cf08235f987ba91506a
-
-![](https://cdn.pbrd.co/images/GP5tI1D.png)
+ETH/ETC: 0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191
 
 Highly appreciated.
