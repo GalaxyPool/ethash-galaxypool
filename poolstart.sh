@@ -5,9 +5,9 @@ killall screen
 screen -wipe
 sleep 1
 
-cd /home/pirl/open-ethereum-pool/
-echo starting pirlnode
-screen -LdmS pirlnode ./pirlnode -maxpeers 100 -rpc -rpcaddr “127.0.0.1” –rpcapi eth,net,web3 -unlock=”0x86d88c82c4c7f8302c9bfcf4c995b7415195fa31″ –password=”/home/pirl/open-ethereum-pool/.walletpass”
+cd ~/home/pool/Ethash-Minerpool/
+echo starting node
+screen -LdmS node ~/home/go-aura/build/bin/geth -rpc -fast -unlock="0x0d9b1890121205ad66b7ee1986bb5db7a7dd3309" –password=”/home/pool/Ethash-Minerpool/pass” -mine -minerthreads
 
 # the file “/home/pirl/open-ethereum-pool/.walletpass” HAS to contain your wallet password, we did this though
 
@@ -15,20 +15,20 @@ sleep 10
 
 #pool2b:
 echo starting 2b pool
-screen -LdmS pirl-pool2b ./pirlpool pool2b.json
+screen -LdmS pool2b ./geth pool2b.json
 
 #pool9b:
 echo starting 9b pool
-screen -LdmS pirl-pool9b ./pirlpool pool9b.json
+screen -LdmS pool9b ./geth pool9b.json
 
 #api:
 echo starting API
-screen -LdmS pirl-api ./pirlpool api.json
+screen -LdmS api ./gth api.json
 
 #unlocker:
 echo starting unlocker
-screen -LdmS pirl-unlocker ./pirlpool unlocker.json
+screen -LdmS unlocker ./geth unlocker.json
 
 #payout:
 echo starting payout
-screen -LdmS pirl-payout ./pirlpool payout.json
+screen -LdmS payout ./geth payout.json
