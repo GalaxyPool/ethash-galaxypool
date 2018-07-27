@@ -2,40 +2,50 @@
   <div class="page-header">
     <h1>How To Mine</h1>
   </div>
-  <p class="lead">In order to mine on this pool you need to have an
-    <a href="https://github.com/ethereum/webthree-umbrella/releases" rel="nofollow" target="_blank">ethminer</a> installation
-    pointed to<br/><code>{{config.HttpHost}}:{{config.HttpPort}}/YOUR_ETH_ADDRESS/RIG_ID</code>
+  <p class="lead">Stratum Mining with <a href="https://bitcointalk.org/index.php?topic=1433925.0" rel="nofollow" target="_blank"><b>Claymore Miner</b></a> (Miners Fee: 1-2%)
   </p>
   <dl class="dl-horizontal">
-    <dt>YOUR_ETH_ADDRESS</dt>
-    <dd>This is your address for payouts, generate one with geth, or mine directly to exchange like
-      <a href="http://poloniex.com" rel="nofollow" target="_blank">Poloniex</a>
-      or <a href="http://bittrex.com" rel="nofollow" target="_blank">Bittrex</a>.<br/>
-      <strong>Example:</strong> <code>0xb85150eb365e7df0941f0cf08235f987ba91506a</code>.
+    <dt>Windows</dt>
+    <dd><code>EthDcrMiner64.exe -epool stratum+tcp://{{config.StratumHost}}:8004 -ewal 0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191  -epsw x -allpools 1 -allcoins exp -gser 2 -eworker rig1</code>
     </dd>
-    <dt>RIG_ID</dt>
+    <dt>Linux</dt>
     <dd>
-      ID of your farm to distinguish it from your other rig. If you have just one rig, feel free to omit this param.
-      This param must be short alphanumeric string with optional dashes and underscores.<br/>
-      <strong>Example:</strong> <code>rig-1</code>
+      <code>./ethdcrminer64 -epool stratum+tcp://{{config.StratumHost}}:8004 -ewal 0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191  -epsw x -allpools 1 -allcoins exp -gser 2 -eworker rig1</code>
     </dd>
   </dl>
-  <p>
-    <strong>Full example:</strong>
-    <code>ethminer -F {{config.HttpHost}}:{{config.HttpPort}}/0xb85150eb365e7df0941f0cf08235f987ba91506a/myfarm -G --farm-recheck 200</code>.<br/>
-    <span class="label label-info">Hint:</span> If you are compiling ethminer from latest source, please also use
-      extra <code>--disable-submit-hashrate</code> option.
+  <p class="lead">Stratum Mining with <a href="https://bitcointalk.org/index.php?topic=2647654.0" rel="nofollow" target="_blank"><b>PhoenixMiner</b></a> (Miners Fee: 0.65%)
   </p>
-
-  <h4>Stratum Mining with Stratum Proxy for Ethereum</h4>
-  <p class="lead">Grab proxy from <a href="https://github.com/Atrides/eth-proxy" re="nofollow" target="_blank">eth-proxy GitHub repo</a>.</p>
-  <p class="lead">Edit <code>eth-proxy.conf</code> and specify our pool's <code>HOST: {{config.StratumHost}}</code>, <code>PORT: {{config.StratumPort}}</code> and your <code>WALLET</code>.</p>
-
-  <h4>Mining with Ether-Proxy</h4>
-  <p class="lead">Use stable release of <a href="https://github.com/sammy007/ether-proxy/releases" target="_blank">Ethereum Solo/Pool Mining Proxy</a>.</p>
-
+  <dl class="dl-horizontal">
+    <dt>Windows</dt>
+    <dd><code>PhoenixMiner.exe -pool {{config.StratumHost}}:8004 -wal 0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191  -pass x -worker rig1</code>
+    </dd>
+  </dl>
+  <p class="lead">Stratum Mining with <a href="https://github.com/ethereum-mining/ethminer/releases" rel="nofollow" target="_blank"><b>Ethminer</b></a> (Miners Fee: 0%)
+  </p>
+  <dl class="dl-horizontal">
+    <dt>Windows OpenCL</dt>
+    <dd><code>ethminer.exe --farm-recheck 200 -G -S {{config.StratumHost}}:8004 -SP 1 -O 0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191 .rig1</code></dd>
+    <dt>Windows CUDA</dt>
+    <dd><code>ethminer.exe --farm-recheck 200 -U -S {{config.StratumHost}}:8004 -SP 1 -O 0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191 .rig1</code></dd>
+    <dt>Linux OpenCL</dt>
+    <dd><code>./ethminer --farm-recheck 200 -G -S {{config.StratumHost}}:8004 -SP 1 -O 0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191 .rig1</code></dd>
+    <dt>Linux CUDA</dt>
+    <dd><code>./ethminer --farm-recheck 200 -U -S {{config.StratumHost}}:8004 -SP 1 -O 0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191 .rig1</code></dd>
+  </dl>
+  <p class="lead"><b>Nicehash</b> Mining
+  </p>
+  <dl class="dl-horizontal">
+    <dt>Server</dt>
+    <dd><code>{{config.StratumHost}}</code></dd>
+    <dt>Port</dt>
+    <dd><code>8009</code></dd>
+    <dt>Username</dt>
+    <dd><code>0xBEB1B4ae55A1C0873c60947724Ae8b58B7Def191 </code></dd>
+    <dt>Password</dt>
+    <dd><code><b>#</b></code></dd>
+  </dl>
   <h4>Advice</h4>
-  <p>CPU mining is not recommended.</p>
+  <p>CPU mining is not recommended! Nevertheless, you can use it if you want to.</p>
   <h4>Terms of Service</h4>
   <p>By using the pool you accept all possible risks related to experimental software usage.<br/>
      Pool owner can't compensate any irreversible losses, but will do his best to prevent worst case.
