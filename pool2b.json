@@ -1,6 +1,6 @@
 {
 	"threads": 1,
-	"coin": "aura",
+	"coin": "rol",
 	"name": "main",
 
 	"proxy": {
