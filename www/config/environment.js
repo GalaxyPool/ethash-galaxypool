@@ -15,7 +15,7 @@ module.exports = function(environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//149.28.131.9:8080/',
+      ApiUrl: '//galaxypool:8080/',
 
       // HTTP mining endpoint
       HttpHost: 'http://galaxypool.org',

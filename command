@@ -10,7 +10,7 @@ reboot
 
 
 
-git clone https://github.com/GalaxyPool/ethash-galaxypool-test.git ethash-galaxypool
+git clone https://github.com/GalaxyPool/ethash-galaxypool.git ethash-galaxypool
 cd ethash-galaxypool
 chmod 764 build/env.sh
 export GOROOT=/usr/local/go
@@ -20,9 +20,9 @@ export GOPATH=$HOME/go
 make
 
 
-npm install -g ember-cli@2.9.1
-npm install -g bower
-npm install
+sudo npm install -g ember-cli@2.9.1
+sudo npm install -g bower
+sudo npm install
 bower install
 
 
