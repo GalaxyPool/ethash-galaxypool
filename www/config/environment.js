@@ -15,14 +15,14 @@ module.exports = function(environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//galaxypool:8080/',
+      ApiUrl: '//66.42.52.2:8080/',
 
       // HTTP mining endpoint
-      HttpHost: 'http://galaxypool.org',
+      HttpHost: 'http://rol.galaxypool.org',
       HttpPort: 8888,
 
       // Stratum mining endpoint
-      StratumHost: 'galaxypool.org',
+      StratumHost: 'rol.galaxypool.org',
       StratumPort: 8008,
 
       // Fee and payout details
