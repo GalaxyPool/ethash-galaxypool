@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ethash-minerpool',
+    modulePrefix: 'ethash-galaxypool',
     environment: environment,
     rootURL: '/',
     locationType: 'hash',
@@ -15,14 +15,14 @@ module.exports = function(environment) {
 
     APP: {
       // API host and port
-      ApiUrl: '//example.net/',
+      ApiUrl: '//149.28.131.9:8080/',
 
       // HTTP mining endpoint
-      HttpHost: 'http://example.net',
+      HttpHost: 'http://galaxypool.org',
       HttpPort: 8888,
 
       // Stratum mining endpoint
-      StratumHost: 'example.net',
+      StratumHost: 'galaxypool.org',
       StratumPort: 8008,
 
       // Fee and payout details

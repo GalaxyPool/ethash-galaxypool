@@ -14,7 +14,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/minerpoolcf/ethash-minerpool/util"
+	"github.com/GalaxyPool/ethash-galaxypool/util"
 )
 
 type RPCClient struct {

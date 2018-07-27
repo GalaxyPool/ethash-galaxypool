@@ -9,7 +9,7 @@ import (
 
 	"gopkg.in/redis.v3"
 
-	"github.com/minerpoolcf/ethash-minerpool/util"
+	"github.com/GalaxyPool/ethash-galaxypool/util"
 )
 
 type Config struct {

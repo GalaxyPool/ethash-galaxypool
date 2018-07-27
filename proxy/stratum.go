@@ -9,7 +9,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/minerpoolcf/ethash-minerpool/util"
+	"github.com/GalaxyPool/ethash-galaxypool/util"
 )
 
 const (

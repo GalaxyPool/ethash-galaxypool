@@ -1,10 +1,10 @@
 package proxy
 
 import (
-	"github.com/minerpoolcf/ethash-minerpool/api"
-	"github.com/minerpoolcf/ethash-minerpool/payouts"
-	"github.com/minerpoolcf/ethash-minerpool/policy"
-	"github.com/minerpoolcf/ethash-minerpool/storage"
+	"github.com/GalaxyPool/ethash-galaxypool/api"
+	"github.com/GalaxyPool/ethash-galaxypool/payouts"
+	"github.com/GalaxyPool/ethash-galaxypool/policy"
+	"github.com/GalaxyPool/ethash-galaxypool/storage"
 )
 
 type Config struct {

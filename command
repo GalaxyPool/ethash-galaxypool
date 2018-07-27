@@ -5,14 +5,14 @@ apt-get install nano
 apt-get install screen
 reboot
 
+./build/bin/geth -rpc -unlock "0x4e0ea5e2ef0bdd500c7b9e679ff2fd4a4ebc6762" -etherbase "0x4e0ea5e2ef0bdd500c7b9e679ff2fd4a4ebc6762" -mine -minerthreads 0
 
 
 
 
-git clone https://github.com/minerpoolcf/ethash-minerpool-test.git ethash-minerpool
-cd ethash-minerpool
+git clone https://github.com/GalaxyPool/ethash-galaxypool-test.git ethash-galaxypool
+cd ethash-galaxypool
 chmod 764 build/env.sh
-
 export GOROOT=/usr/local/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export GOPATH=$HOME/go

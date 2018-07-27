@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/minerpoolcf/ethash-minerpool/rpc"
-	"github.com/minerpoolcf/ethash-minerpool/storage"
+	"github.com/GalaxyPool/ethash-galaxypool/rpc"
+	"github.com/GalaxyPool/ethash-galaxypool/storage"
 )
 
 func TestMain(m *testing.M) {

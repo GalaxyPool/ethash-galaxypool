@@ -12,8 +12,8 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/minerpoolcf/ethash-minerpool/storage"
-	"github.com/minerpoolcf/ethash-minerpool/util"
+	"github.com/GalaxyPool/ethash-galaxypool/storage"
+	"github.com/GalaxyPool/ethash-galaxypool/util"
 )
 
 type ApiConfig struct {

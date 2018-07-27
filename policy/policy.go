@@ -9,8 +9,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/minerpoolcf/ethash-minerpool/storage"
-	"github.com/minerpoolcf/ethash-minerpool/util"
+	"github.com/GalaxyPool/ethash-galaxypool/storage"
+	"github.com/GalaxyPool/ethash-galaxypool/util"
 )
 
 type Config struct {
