@@ -82,7 +82,7 @@
 		"donate": false,
 		"depth": 120,
 		"immatureDepth": 20,
-		"keepTxFees": true,
+		"keepTxFees": false,
 		"interval": "1m",
 		"daemon": "http://127.0.0.1:8545",
 		"timeout": "10s"
