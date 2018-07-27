@@ -1,7 +1,7 @@
 {
   "name": "ethash-minerpool",
   "version": "0.0.0",
-  "description": "Ethash Minerpool",
+  "description": "Open Ethereum Pool",
   "private": true,
   "directories": {
     "doc": "doc",
