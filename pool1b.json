@@ -21,7 +21,7 @@
 			"enabled": true,
 			"listen": "0.0.0.0:8001",
 			"timeout": "120s",
-			"maxConn": 8192
+			"maxConn": 100
 		},
 
 		"policy": {
@@ -30,9 +30,9 @@
 			"refreshInterval": "1m",
 
 			"banning": {
-				"enabled": false,
+				"enabled": true,
 				"ipset": "blacklist",
-				"timeout": 1800,
+				"timeout": 300,
 				"invalidPercent": 30,
 				"checkThreshold": 30,
 				"malformedLimit": 5
