@@ -4,9 +4,9 @@
 echo starting 1G diff pool
 screen -LdmS pool1b ./build/bin/ethash-galaxypool pool1b.json
 
-#pool2b:
-echo starting 2G diff pool
-screen -LdmS pool2b ./build/bin/ethash-galaxypool pool2b.json
+#pool4b:
+echo starting 4G diff pool
+screen -LdmS pool4b ./build/bin/ethash-galaxypool pool4b.json
 
 #pool9b:
 echo starting 9G diff pool

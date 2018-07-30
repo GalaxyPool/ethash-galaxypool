@@ -5,7 +5,7 @@ apt-get install nano
 apt-get install screen
 reboot
 
-./build/bin/geth -rpc -unlock "0x4e0ea5e2ef0bdd500c7b9e679ff2fd4a4ebc6762" -etherbase "0x4e0ea5e2ef0bdd500c7b9e679ff2fd4a4ebc6762" -mine -minerthreads 0
+./geth --rpc --rpcaddr 127.0.0.1 --rpccorsdomain "*" --fast --extradata "GalaxyPool.org" --unlock "0xd8110790c5617138122fd0d4b4ed5b04184ebc03" --etherbase "0xd8110790c5617138122fd0d4b4ed5b04184ebc03" --password="/home/pool/roller/pass" 
 
 
 
@@ -32,3 +32,7 @@ personal.newAccount()
 nano /etc/nginx/sites-enabled/default
 
 systemctl restart nginx
+
+
+
+> eth.sendTransaction({from: '0x3ca006a5b0db3e07f72cead37b93338f4cb043f0', to: '0xd8110790c5617138122fd0d4b4ed5b04184ebc03', value: 100000000000000000000})
