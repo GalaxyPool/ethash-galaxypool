@@ -9,6 +9,7 @@
           <th>Hashrate (30M)</th>
           <th>Hashrate (3H)</th>
           <th>Last Share</th>
+          <th>{{t "account.earnings.perday"}} ({{t "account.earnings.short_avg"}})</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,7 @@
             <td>{{k}}</td>
             <td>{{format-hashrate v.hr}}</td>
             <td>{{format-hashrate v.hr2}}</td>
+            <td>{{format-number (worker-earnperday v.hr netstats.hashrate)}}</td>
             <td>{{format-relative (seconds-to-ms v.lastBeat)}}</td>
           </tr>
         {{/each-in}}
