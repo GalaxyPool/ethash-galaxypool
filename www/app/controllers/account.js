@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   applicationController: Ember.inject.controller('application'),
+  stat: Ember.computed.reads('applicationController'),
   stats: Ember.computed.reads('applicationController.model.stats'),
 
   roundPercent: Ember.computed('stats', 'model', {
@@ -12,5 +13,5 @@ export default Ember.Controller.extend({
       }
       return percent;
     }
-  })
-});
+  });
+
