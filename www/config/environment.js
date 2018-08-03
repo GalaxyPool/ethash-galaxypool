@@ -26,14 +26,11 @@ module.exports = function(environment) {
       StratumPort: 8008,
 
       // Fee and payout details
-      PoolFee: '1 %',
+      PoolFee: '0%',
       PayoutThreshold: '5 ROL',
 
       // For network hashrate (change for your favourite fork)
-      BlockTime: 14,
-
-      // Coin ticket
-      Unit: 'ROL'
+      BlockTime: 14.4
     }
   };
 
