@@ -14,16 +14,4 @@ export default Ember.Controller.extend({
       }
       return percent;
     }
-  }),
-  netHashrate: Ember.computed({
-   get() {
-     return this.get('hashrate');
-   }
-  }),
-  earnPerDay: Ember.computed('model', {
-   get() {
-     return 24 * 60 * 60 / this.get('config').BlockTime * this.get('config').BlockReward *
-       this.getWithDefault('model.hashrate') / this.get('hashrate');
-   }
-    })
-    });
+  });
