@@ -1,4 +1,5 @@
 <div class="container">
+  {{high-charts mode=chartMode chartOptions=chartOptions content=chartData}}
   {{#if model.workers}}
   <h4>Your Workers</h4>
   <div class="table-responsive">
@@ -18,7 +19,7 @@
             <td>{{k}}</td>
             <td>{{format-hashrate v.hr}}</td>
             <td>{{format-hashrate v.hr2}}</td>
-            <td>{{format-number (worker-earnperday v.hr stats.difficulty)}}</td>
+            <td>{{format-number (worker-earnperday v.hr stat.difficulty)}}</td>
             <td>{{format-relative (seconds-to-ms v.lastBeat)}}</td>
           </tr>
         {{/each-in}}
