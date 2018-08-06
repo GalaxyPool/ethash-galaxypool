@@ -16,7 +16,7 @@ account:
   hashrate: Hashrate
   earnings:
     perday: Earnings per day
-    short_avg: 30m avg
+    short_avg: 1H avg
   blocks:
     found: Blocks Found
   total:

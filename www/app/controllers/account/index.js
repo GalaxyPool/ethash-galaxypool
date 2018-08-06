@@ -49,8 +49,8 @@ export default Ember.Controller.extend({
                             text: "HASHRATE"
                         },
                         //min: 0,
-                        //softMin: e.getWithDefault("model.currentHashrate") / 1000000,
-                        //softMax: e.getWithDefault("model.currentHashrate") / 10000000
+                        softMin: e.getWithDefault("model.currentHashrate") / 1.1,
+                        softMax: e.getWithDefault("model.currentHashrate") * 1.2
                     },
                     plotLines: [{
                         value: 0,
@@ -86,7 +86,7 @@ export default Ember.Controller.extend({
                     },*/
                     series: [{
                         color: "#E99002",
-                        name: "3 hours average hashrate",
+                        name: "6 hours average hashrate",
                         type: 'spline',
                         tooltip: {
                           valueDecimals: 2
