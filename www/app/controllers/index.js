@@ -33,7 +33,7 @@ export default Ember.Controller.extend({
                         }
                     },
                     title: {
-                        text: "Our pool's hashrate"
+                        text: "POOL HASHRATE"
                     },
                     xAxis: {
                         labels: {
@@ -80,25 +80,35 @@ export default Ember.Controller.extend({
                         name: "Hashrate",
                         data: function() {
                             var e, a = [];
-                            if (null != t)
+                            if (null != t) {
                                 for (e = 0; e <= t.length - 1; e += 1) {
                                     var n = 0,
                                         r = 0,
                                         l = 0;
-                                    r = new Date(1e3 * t[e].x), l = r.toLocaleString(), n = t[e].y, a.push({
+                                    r = new Date(1e3 * t[e].x);
+                                    l = r.toLocaleString();
+                                    n = t[e].y; a.push({
                                         x: r,
                                         d: l,
                                         y: n
-                                    })
-                                } else a.push({
+                                    });
+                                }
+                            } else {
+                                a.push({
                                 x: 0,
                                 d: 0,
                                 y: 0
-                            });
-                            return a
+                                });
+                            }
+                            return a;
                         }()
                     }]
                 };
+              a.title.text = this.get('config.highcharts.main.title') || "POOL HASHRATE";
+              a.yAxis.title.text = this.get('config.highcharts.main.ytitle') || "";
+              a.chart.height = this.get('config.highcharts.main.height') || 300;
+              a.chart.type = this.get('config.highcharts.main.type') || 'spline';
+              a.series[0].color = this.get('config.highcharts.main.color') || '#2357ab3';
             return a
         }
     })

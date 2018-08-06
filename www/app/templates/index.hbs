@@ -25,9 +25,11 @@
   </div>
 </div>
 
-<div class="container">
-  {{high-charts mode=chartMode chartOptions=chartOptions content=chartData}}
-</div>
+{{#if config.highcharts.main.enabled}}
+  <div class="container">
+    {{high-charts mode=chartMode chartOptions=chartOptions content=chartData}}
+  </div>
+{{/if}}
 
 <div class="container">
 <h5 class="note note-info"><span style="font-size: 16px">

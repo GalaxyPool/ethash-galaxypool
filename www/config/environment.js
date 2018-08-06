@@ -33,7 +33,32 @@ module.exports = function(environment) {
       BlockTime: 14,
 
       // Coin ticket
-      Unit: 'ROL'
+      Unit: 'ROL',
+
+      //Chart config
+      highcharts: {
+        main: {
+          enabled: true,
+          height: 300,
+          type: 'areaspline',
+          color: '#357ab3',
+          title: '',
+          ytitle: '',
+          interval: 180000,
+          chartInterval: 900000
+        },
+        account: {
+          enabled: true,
+          height: 300,
+          type: 'spline',
+          color: [ '', '' ],
+          title: '',
+          ytitle: '',
+          interval: 180000,
+          chartInterval: 900000,
+          paymentInterval: 30000
+        }
+      }
     }
   };
 
