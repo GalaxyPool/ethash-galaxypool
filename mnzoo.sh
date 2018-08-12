@@ -125,8 +125,8 @@ TXO="${input:-$TXO}"
 read -e -i "$TXO" -p "Confirm TXO: " input
 TXO="${input:-$TXO}"
 echo
-printf "rpcuser=ZOOrpc
-rpcpassword=$PASS
+printf "rpcuser=12345
+rpcpassword=123456
 server=1
 listen=1
 daemon=1
