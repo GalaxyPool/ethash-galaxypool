@@ -4,18 +4,6 @@
 DAEMON_URL=https://github.com/AndyMoriss/ZooClub/releases/download/1.0.0.1/zoo-daemon-precompiled.zip
 DAEMON_FILE=zoo-daemon-precompiled.zip
 
-function prepare_swap() {
-	if free | awk '/^Swap:/ {exit !$2}'; then
-		printf "\nSwap exists\n\n"
-	else
-		dd if=/dev/zero of=/swapfile count=2048 bs=1M
-		chmod 600 /swapfile
-		mkswap /swapfile
-		swapon /swapfile
-		echo "/swapfile none swap sw 0 0" >> /etc/fstab
-	fi
-}
-
 function update_system() {
 	apt-get -yqq update
 }
@@ -90,7 +78,6 @@ echo
 
 echo "Enabling SWAP if not present"
 echo 
-prepare_swap
 
 echo "Downloading updates and requires packages"
 echo
