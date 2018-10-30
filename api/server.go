@@ -1,8 +1,8 @@
 package api
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"sort"
@@ -118,26 +118,26 @@ func (s *ApiServer) Start() {
 	}()
 
 	go func() {
-			c := cron.New()
-			poolCharts := s.config.PoolCharts
-			log.Printf("pool charts config is :%v", poolCharts)
-			c.AddFunc(poolCharts, func() {
-				s.collectPoolCharts()
-			})
-			minerCharts := s.config.MinerCharts
-			log.Printf("miner charts config is :%v", minerCharts)
-			c.AddFunc(minerCharts, func() {
-				miners, err := s.backend.GetAllMinerAccount()
-				if err != nil {
-					log.Println("Get all miners account error: ", err)
-				}
-				for _, login := range miners {
-					miner, _ := s.backend.CollectWorkersStats(s.hashrateWindow, s.hashrateLargeWindow, login)
-					s.collectMinerCharts(login, miner["currentHashrate"].(int64), miner["hashrate"].(int64), miner["workersOnline"].(int64))
-				}
-			})
-			c.Start()
-		}()
+		c := cron.New()
+		poolCharts := s.config.PoolCharts
+		log.Printf("pool charts config is :%v", poolCharts)
+		c.AddFunc(poolCharts, func() {
+			s.collectPoolCharts()
+		})
+		minerCharts := s.config.MinerCharts
+		log.Printf("miner charts config is :%v", minerCharts)
+		c.AddFunc(minerCharts, func() {
+			miners, err := s.backend.GetAllMinerAccount()
+			if err != nil {
+				log.Println("Get all miners account error: ", err)
+			}
+			for _, login := range miners {
+				miner, _ := s.backend.CollectWorkersStats(s.hashrateWindow, s.hashrateLargeWindow, login)
+				s.collectMinerCharts(login, miner["currentHashrate"].(int64), miner["hashrate"].(int64), miner["workersOnline"].(int64))
+			}
+		})
+		c.Start()
+	}()
 
 	if !s.config.PurgeOnly {
 		s.listen()
@@ -360,6 +360,7 @@ func (s *ApiServer) AccountIndex(w http.ResponseWriter, r *http.Request) {
 		}
 		stats["pageSize"] = s.config.Payments
 		stats["minerCharts"], err = s.backend.GetMinerCharts(s.config.MinerChartsNum, login)
+		stats["paymentCharts"], err = s.backend.GetPaymentCharts(login)
 		reply = &Entry{stats: stats, updatedAt: now}
 		s.miners[login] = reply
 	}
