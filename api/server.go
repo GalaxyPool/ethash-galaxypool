@@ -1,8 +1,8 @@
 package api
 
 import (
-	"encoding/json"
 	"fmt"
+	"encoding/json"
 	"log"
 	"net/http"
 	"sort"
@@ -118,26 +118,26 @@ func (s *ApiServer) Start() {
 	}()
 
 	go func() {
-		c := cron.New()
-		poolCharts := s.config.PoolCharts
-		log.Printf("pool charts config is :%v", poolCharts)
-		c.AddFunc(poolCharts, func() {
-			s.collectPoolCharts()
-		})
-		minerCharts := s.config.MinerCharts
-		log.Printf("miner charts config is :%v", minerCharts)
-		c.AddFunc(minerCharts, func() {
-			miners, err := s.backend.GetAllMinerAccount()
-			if err != nil {
-				log.Println("Get all miners account error: ", err)
-			}
-			for _, login := range miners {
-				miner, _ := s.backend.CollectWorkersStats(s.hashrateWindow, s.hashrateLargeWindow, login)
-				s.collectMinerCharts(login, miner["currentHashrate"].(int64), miner["hashrate"].(int64), miner["workersOnline"].(int64))
-			}
-		})
-		c.Start()
-	}()
+			c := cron.New()
+			poolCharts := s.config.PoolCharts
+			log.Printf("pool charts config is :%v", poolCharts)
+			c.AddFunc(poolCharts, func() {
+				s.collectPoolCharts()
+			})
+			minerCharts := s.config.MinerCharts
+			log.Printf("miner charts config is :%v", minerCharts)
+			c.AddFunc(minerCharts, func() {
+				miners, err := s.backend.GetAllMinerAccount()
+				if err != nil {
+					log.Println("Get all miners account error: ", err)
+				}
+				for _, login := range miners {
+					miner, _ := s.backend.CollectWorkersStats(s.hashrateWindow, s.hashrateLargeWindow, login)
+					s.collectMinerCharts(login, miner["currentHashrate"].(int64), miner["hashrate"].(int64), miner["workersOnline"].(int64))
+				}
+			})
+			c.Start()
+		}()
 
 	if !s.config.PurgeOnly {
 		s.listen()
@@ -367,6 +367,34 @@ func (s *ApiServer) AccountIndex(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 	err := json.NewEncoder(w).Encode(reply.stats)
+	if err != nil {
+		log.Println("Error serializing API response: ", err)
+	}
+}
+
+func (s *ApiServer) Settings(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Cache-Control", "max-age=600")
+	w.WriteHeader(http.StatusOK)
+	reply := make(map[string]interface{})
+	reply["HashLimit"] = s.settings["Proxy"].(map[string]interface{})["HashLimit"]
+	reply["Difficulty"] = s.settings["Proxy"].(map[string]interface{})["Difficulty"]
+	reply["PoolFee"] = s.settings["BlockUnlocker"].(map[string]interface{})["PoolFee"]
+	reply["PoolFeeAddress"] = s.settings["BlockUnlocker"].(map[string]interface{})["PoolFeeAddress"]
+	reply["Donate"] = s.settings["BlockUnlocker"].(map[string]interface{})["Donate"]
+	reply["DonateFee"] = s.settings["BlockUnlocker"].(map[string]interface{})["DonateFee"]
+	reply["DonateAddress"] = s.settings["BlockUnlocker"].(map[string]interface{})["DonateAddress"]
+	reply["KeyTxFees"] = s.settings["BlockUnlocker"].(map[string]interface{})["KeepTxFees"]
+	reply["BlockUnlockDepth"] = s.settings["BlockUnlocker"].(map[string]interface{})["Depth"]
+	reply["EthProxy"] = s.settings["Proxy"].(map[string]interface{})["Enabled"]
+	reply["EthProxyPool"] = s.settings["Proxy"].(map[string]interface{})["Listen"]
+	reply["Stratum"] = s.settings["Proxy"].(map[string]interface{})["Stratum"].(map[string]interface{})["Enabled"]
+	reply["StratumPool"] = s.settings["Proxy"].(map[string]interface{})["Stratum"].(map[string]interface{})["Listen"]
+	reply["PayoutThreshold"] = s.settings["Payouts"].(map[string]interface{})["Threshold"]
+	reply["PayoutInterval"] = s.settings["Payouts"].(map[string]interface{})["Interval"]
+	reply["GenesisHash"] = s.genesisHash
+	err := json.NewEncoder(w).Encode(reply)
 	if err != nil {
 		log.Println("Error serializing API response: ", err)
 	}
