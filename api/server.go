@@ -372,34 +372,6 @@ func (s *ApiServer) AccountIndex(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (s *ApiServer) Settings(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Cache-Control", "max-age=600")
-	w.WriteHeader(http.StatusOK)
-	reply := make(map[string]interface{})
-	reply["HashLimit"] = s.settings["Proxy"].(map[string]interface{})["HashLimit"]
-	reply["Difficulty"] = s.settings["Proxy"].(map[string]interface{})["Difficulty"]
-	reply["PoolFee"] = s.settings["BlockUnlocker"].(map[string]interface{})["PoolFee"]
-	reply["PoolFeeAddress"] = s.settings["BlockUnlocker"].(map[string]interface{})["PoolFeeAddress"]
-	reply["Donate"] = s.settings["BlockUnlocker"].(map[string]interface{})["Donate"]
-	reply["DonateFee"] = s.settings["BlockUnlocker"].(map[string]interface{})["DonateFee"]
-	reply["DonateAddress"] = s.settings["BlockUnlocker"].(map[string]interface{})["DonateAddress"]
-	reply["KeyTxFees"] = s.settings["BlockUnlocker"].(map[string]interface{})["KeepTxFees"]
-	reply["BlockUnlockDepth"] = s.settings["BlockUnlocker"].(map[string]interface{})["Depth"]
-	reply["EthProxy"] = s.settings["Proxy"].(map[string]interface{})["Enabled"]
-	reply["EthProxyPool"] = s.settings["Proxy"].(map[string]interface{})["Listen"]
-	reply["Stratum"] = s.settings["Proxy"].(map[string]interface{})["Stratum"].(map[string]interface{})["Enabled"]
-	reply["StratumPool"] = s.settings["Proxy"].(map[string]interface{})["Stratum"].(map[string]interface{})["Listen"]
-	reply["PayoutThreshold"] = s.settings["Payouts"].(map[string]interface{})["Threshold"]
-	reply["PayoutInterval"] = s.settings["Payouts"].(map[string]interface{})["Interval"]
-	reply["GenesisHash"] = s.genesisHash
-	err := json.NewEncoder(w).Encode(reply)
-	if err != nil {
-		log.Println("Error serializing API response: ", err)
-	}
-}
-
 func (s *ApiServer) getStats() map[string]interface{} {
 	stats := s.stats.Load()
 	if stats != nil {
